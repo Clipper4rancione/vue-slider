@@ -30,7 +30,17 @@ createApp({
 
                     'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
                 ]
-            }
+            },
+            activeImage: 0
+        }
+    },
+    methods: {
+        changeClick(indice){
+            this.activeImage = indice;
+        },
+        nextPrev(isNext){
+            if(isNext) this.activeImage++;
+            else this.activeImage--;
         }
     }
 }).mount('#app')
