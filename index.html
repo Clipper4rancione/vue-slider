@@ -18,7 +18,9 @@
                 <div class="container-img">
                     <div class="img-wrapper">
                         <div class="info"></div>
-                        <img src="img/argentina.jpg" alt="">
+                        <img 
+                            :src="country.images[activeImage]" alt=""
+                        >
                         <div class="info-text">
                             <h2></h2>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium</p>
@@ -27,12 +29,26 @@
                 </div>
                 <div class="container-thumbs">
                     <img 
-                    v-for="image in country.images"
-                    class="thumb" 
-                    :src="image" alt="sweden">
+                        v-for="(image, index) in country.images"
+                        :src="image" alt="sweden"
+                        class="thumb"
+                        @click="changeClick(index)"
+                        :class="{'active-thumb': index === activeImage}"
+                    >
 
-                    <div class="arrow left">&larr;</div>
-                    <div class="arrow right">&rarr;</div>
+                    <div 
+                    class="arrow left"
+                    @click="nextPrev(false)"
+                    >
+                    &larr;
+                    </div>
+                    <div 
+                    class="arrow right"
+                    @click="nextPrev(true)"
+                    >
+                    &rarr;
+                    </div>
+
                 </div>
             </div>
         </div>
