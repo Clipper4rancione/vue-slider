@@ -26,7 +26,11 @@
                     </div>
                 </div>
                 <div class="container-thumbs">
-                    <img class="thumb" src="img/sweden.jpg" alt="sweden">
+                    <img 
+                    v-for="image in country.images"
+                    class="thumb" 
+                    :src="image" alt="sweden">
+
                     <div class="arrow left">&larr;</div>
                     <div class="arrow right">&rarr;</div>
                 </div>
