@@ -39,8 +39,28 @@ createApp({
             this.activeImage = indice;
         },
         nextPrev(isNext){
-            if(isNext) this.activeImage++;
-            else this.activeImage--;
+            isNext ? this.activeImage++ : this.activeImage--
+
+            if(this.activeImage === this.country.images.length){
+                this.activeImage = 0;
+            }else if(this.activeImage < 0){
+                this.activeImage = this.country.images.length -1;
+            }
+        },
+        next(){
+            this.activeImage++;
+
+            if(this.activeImage === this.country.images.length) this.activeImage = 0;
+        },
+        autoplay(){
+            let play = setInterval(this.next, 1200)
+        },     
+        stopTime(){
+           clearInterval(this.play);
         }
+    },
+    mounted(){
+        //console.log('montata');
+        this.autoplay();
     }
 }).mount('#app')

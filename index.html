@@ -14,16 +14,25 @@
     <main>
 
         <div id="app" class="wrapper">
-            <div class="container d-flex flex-column justify-content-center align-items-center">
+            <div 
+            class=
+            "container 
+            d-flex 
+            flex-column 
+            justify-content-center 
+            align-items-center"
+           
+            >
                 <div class="container-img">
-                    <div class="img-wrapper">
+                    <div 
+                    class="img-wrapper">
                         <div class="info"></div>
                         <img 
                             :src="country.images[activeImage]" alt=""
                         >
                         <div class="info-text">
-                            <h2></h2>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium</p>
+                            <h2>{{country.name[activeImage]}}</h2>
+                            <p>{{country.caption[activeImage]}}</p>
                         </div>
                     </div>
                 </div>
@@ -50,6 +59,12 @@
                     </div>
 
                 </div>
+
+                <div 
+                class=
+                "btn my-3 c-button"
+                @click="stopTime()"
+                >STOP</div>
             </div>
         </div>
 
